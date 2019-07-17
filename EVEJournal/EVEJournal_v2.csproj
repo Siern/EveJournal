@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{416E6AC8-EEDE-45B5-A363-52109FD1FB8C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EVEJournal</RootNamespace>
+    <AssemblyName>EVEJournal_v2</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationIcon>Taskbar.ico</ApplicationIcon>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.1.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug_v2\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;USEDOTNET2</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0414</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release_v2\</OutputPath>
+    <DefineConstants>USEDOTNET2</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data.SQLite, Version=1.0.60.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppData.cs" />
+    <Compile Include="BaseCollection.cs" />
+    <Compile Include="CharacterIndustryJob\CharacterIndustryJob.cs" />
+    <Compile Include="CharacterIndustryJob\CharacterIndustryJob.ObjectInternal.cs" />
+    <Compile Include="CharacterIndustryJob\CharacterIndustryJobCollection.cs" />
+    <Compile Include="CharacterIndustryJob\CharacterIndustryJobObject.cs" />
+    <Compile Include="CharacterJournal\CharacterJournal.InternalObject.cs" />
+    <Compile Include="CharacterOrder\CharacterOrder.cs" />
+    <Compile Include="CharacterOrder\CharacterOrder.ObjectInternal.cs" />
+    <Compile Include="CharacterOrder\CharacterOrderCollection.cs" />
+    <Compile Include="CharacterOrder\CharacterOrderObject.cs" />
+    <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\CharacterCollection.cs" />
+    <Compile Include="CharacterEditorDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharacterEditorDlg.Designer.cs">
+      <DependentUpon>CharacterEditorDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CharacterJournal\CharacterJournal.cs" />
+    <Compile Include="CharacterJournal\CharacterJournalCollection.cs" />
+    <Compile Include="Characters\CharacterObject.cs" />
+    <Compile Include="CharacterTransaction\CharacterTransaction.cs" />
+    <Compile Include="CharacterTransaction\CharacterTransactionCollection.cs" />
+    <Compile Include="CommandLineDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommandLineDlg.Designer.cs">
+      <DependentUpon>CommandLineDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compression.cs" />
+    <Compile Include="CorpEditWalletNamesDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CorpEditWalletNamesDlg.Designer.cs">
+      <DependentUpon>CorpEditWalletNamesDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CorpJournal\CorporationJournal.cs" />
+    <Compile Include="CorpJournal\CorporationJournal.InternalObject.cs" />
+    <Compile Include="CorpJournal\CorporationJournalCollection.cs" />
+    <Compile Include="CorpMemberTracking\CorpMemberTracking.cs" />
+    <Compile Include="CorpMemberTracking\CorpMemberTrackingCollection.cs" />
+    <Compile Include="CorpMemberTracking\CorpMemberTrackingObject.cs" />
+    <Compile Include="CorpMemberTracking\CorpMemberTrackingObjectInternal.cs" />
+    <Compile Include="MemberTrackingSettings\MemberTrackingSettings.cs" />
+    <Compile Include="MemberTrackingSettings\MemberTrackingSettingsCollection.cs" />
+    <Compile Include="MemberTrackingSettings\MemberTrackingSettingsObject.cs" />
+    <Compile Include="MemberTrackingSettings\MemberTrackingSettingsObjectInternal.cs" />
+    <Compile Include="CorpTransaction\CorporationTransactionObject.cs" />
+    <Compile Include="CorpTransaction\CorporationTransaction.cs" />
+    <Compile Include="CorpTransaction\CorporationTransactionCollection.cs" />
+    <Compile Include="CorpWalletNames\CorpWalletName.cs" />
+    <Compile Include="CorpWalletNames\CorpWalletName.InternalObject.cs" />
+    <Compile Include="CorpWalletNames\CorpWalletNameCollection.cs" />
+    <Compile Include="CorpWalletNames\CorpWalletNameObjectWritable.cs" />
+    <Compile Include="Database\Database.BulkLoader.cs" />
+    <Compile Include="Database\Database.cs" />
+    <Compile Include="Database\Database.InsertRecordThread.cs" />
+    <Compile Include="Database\Database.Upgrade.cs" />
+    <Compile Include="Database\Database.VerifyVersion.cs" />
+    <Compile Include="Database\DBConstraint.cs" />
+    <Compile Include="Database\DBConvert.cs" />
+    <Compile Include="Database\DBEventArgs.cs" />
+    <Compile Include="Database\DBSortConstraint.cs" />
+    <Compile Include="DataExportDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataExportDlg.Designer.cs">
+      <DependentUpon>DataExportDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataExportSelectionDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataExportSelectionDlg.Designer.cs">
+      <DependentUpon>DataExportSelectionDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataImportDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataImportDlg.Designer.cs">
+      <DependentUpon>DataImportDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EveAPI\EveAPI.GetCharacterOrderList.cs" />
+    <Compile Include="EveAPI\EveAPI.cs" />
+    <Compile Include="EveAPI\EveAPI.EveApiId.cs" />
+    <Compile Include="EveAPI\EveAPI.GetCharacterJournalList.cs" />
+    <Compile Include="EveAPI\EveAPI.GetCharacterList.cs" />
+    <Compile Include="EveAPI\EveAPI.GetCharacterTransactionList.cs" />
+    <Compile Include="EveAPI\EveAPI.GetCorporationJournalList.cs" />
+    <Compile Include="EveAPI\EveAPI.GetCorporationMemberTrackingList.cs" />
+    <Compile Include="EveAPI\EveAPI.GetCorporationTransactionList.cs" />
+    <Compile Include="EveAPI\EveAPI.GetRefTypesList.cs" />
+    <Compile Include="Form1\Form1.CorpJournal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.CorpMissioner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.CorpTrans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.CorpWalletNames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1\Form1.Journal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.MemberActivity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.Orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.Transaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IDBCollection.cs" />
+    <Compile Include="IDBRecord.cs" />
+    <Compile Include="IDBRecordRead.cs" />
+    <Compile Include="CharacterJournal\JournalObject.cs" />
+    <Compile Include="CharacterJournal\JournalObjectWriteable.cs" />
+    <Compile Include="ListSelectDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListSelectDlg.Designer.cs">
+      <DependentUpon>ListSelectDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logger.cs" />
+    <Compile Include="MasterTable.cs" />
+    <Compile Include="MasterTableCollection.cs" />
+    <Compile Include="MemberActivitySettingsDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberActivitySettingsDlg.Designer.cs">
+      <DependentUpon>MemberActivitySettingsDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessingDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessingDlg.Designer.cs">
+      <DependentUpon>ProcessingDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CharacterEditorDlg.resx">
+      <DependentUpon>CharacterEditorDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommandLineDlg.resx">
+      <DependentUpon>CommandLineDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CorpEditWalletNamesDlg.resx">
+      <DependentUpon>CorpEditWalletNamesDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListSelectDlg.resx">
+      <DependentUpon>ListSelectDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberActivitySettingsDlg.resx">
+      <DependentUpon>MemberActivitySettingsDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessingDlg.resx">
+      <DependentUpon>ProcessingDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQLDump.resx">
+      <DependentUpon>SQLDump.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ReferenceType\ReferenceType.cs" />
+    <Compile Include="ReferenceType\ReferenceTypeCollection.cs" />
+    <Compile Include="ReferenceType\ReferenceTypeObject.cs" />
+    <Compile Include="RequestCache\RequestCache.cs" />
+    <Compile Include="RequestCache\RequestCacheCollection.cs" />
+    <Compile Include="RequestCache\RequestObject.cs" />
+    <Compile Include="SQLDump.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQLDump.Designer.cs">
+      <DependentUpon>SQLDump.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CharacterTransaction\TransactionObject.cs" />
+    <Compile Include="Version\Version.cs" />
+    <Compile Include="Version\VersionCollection.cs" />
+    <Compile Include="Version\VersionObject.cs" />
+    <Compile Include="CorpWalletNames\CorpWalletNameObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Taskbar.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,6 @@
+﻿namespace EVEJournal
+{
+    interface IDBRecordRead
+    {
+    }
+}

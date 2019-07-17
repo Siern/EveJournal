@@ -1,0 +1,555 @@
+CREATE TABLE CharAccountBalance (
+  fld_CharID      integer NOT NULL,
+  fld_AccountID   integer NOT NULL,
+  fld_AccountKey  integer NOT NULL,
+  fld_balance     real,
+  PRIMARY KEY (fld_CharID, fld_AccountID, fld_AccountKey)
+);
+
+CREATE TABLE CharAssets (
+  fld_CharID        integer,
+  fld_ItemID        integer,
+  fld_ItemParentID  integer NOT NULL DEFAULT 0,
+  fld_locationID    integer,
+  fld_typeID        integer,
+  fld_quantity      integer,
+  fld_flag          integer,
+  fld_singleton     integer
+);
+
+CREATE TABLE CharIndustryJobs (
+  fld_CharID                                        integer NOT NULL,
+  fld_jobID                                         integer NOT NULL,
+  fld_installerID                                   integer NOT NULL,
+  fld_installTime                                   datetime NOT NULL,
+  fld_assemblyLineID                                integer,
+  fld_containerID                                   integer,
+  fld_installedItemID                               integer,
+  fld_installedItemLocationID                       integer,
+  fld_installedItemQuantity                         integer,
+  fld_installedItemProductivityLevel                integer,
+  fld_installedItemMaterialLevel                    integer,
+  fld_installedItemLicensedProductionRunsRemaining  integer,
+  fld_outputLocationID                              integer,
+  fld_runs                                          integer,
+  fld_licensedProductionRuns                        integer,
+  fld_installedInSolarSystemID                      integer,
+  fld_containerLocationID                           integer,
+  fld_installedItemTypeID                           integer,
+  fld_outputTypeID                                  integer,
+  fld_containerTypeID                               integer,
+  fld_installedItemCopy                             integer,
+  fld_completed                                     integer,
+  fld_completedSuccessfully                         integer,
+  fld_installedItemFlag                             integer,
+  fld_outputFlag                                    integer,
+  fld_activityID                                    integer,
+  fld_completedStatus                               integer,
+  fld_materialMultiplier                            real,
+  fld_charMaterialMultiplier                        real,
+  fld_timeMultiplier                                real,
+  fld_charTimeMultiplier                            real,
+  fld_beginProductionTime                           datetime,
+  fld_endProductionTime                             datetime,
+  fld_pauseProductionTime                           datetime,
+  PRIMARY KEY (fld_CharID, fld_jobID, fld_installerID, fld_installTime)
+);
+
+CREATE TABLE CharJournal (
+  fld_CharID      integer NOT NULL,
+  fld_refID       integer NOT NULL,
+  fld_refTypeID   integer NOT NULL,
+  fld_date        datetime NOT NULL,
+  fld_ownerID1    integer NOT NULL,
+  fld_ownerID2    integer NOT NULL,
+  fld_argID       integer NOT NULL,
+  fld_amount      real,
+  fld_balance     real,
+  fld_ownerName1  nvarchar(50),
+  fld_ownerName2  nvarchar(50),
+  fld_argName1    nvarchar(50),
+  fld_reason      nvarchar(50),
+  PRIMARY KEY (fld_CharID, fld_refID, fld_refTypeID, fld_date, fld_ownerID1, fld_ownerID2, fld_argID)
+);
+
+CREATE TABLE CharMarketOrders (
+  fld_charID        integer NOT NULL,
+  fld_orderID       integer NOT NULL,
+  fld_stationID     integer NOT NULL,
+  fld_typeID        integer NOT NULL,
+  fld_accountKey    integer NOT NULL,
+  fld_issued        datetime NOT NULL,
+  fld_ownerID       integer,
+  fld_volEntered    integer,
+  fld_volRemaining  integer,
+  fld_minVolume     integer,
+  fld_range         integer,
+  fld_duration      integer,
+  fld_orderState    numeric(1),
+  fld_bid           numeric(1),
+  fld_escrow        real,
+  fld_price         real,
+  PRIMARY KEY (fld_charID, fld_orderID, fld_stationID, fld_typeID, fld_accountKey, fld_issued)
+);
+
+CREATE TABLE CharMedals (
+  fld_CharID         integer NOT NULL,
+  fld_MedalID        integer NOT NULL,
+  fld_issuerID       integer,
+  fld_corporationID  integer,
+  fld_issued         datetime,
+  fld_reason         nvarchar(50),
+  fld_status         nvarchar(50),
+  fld_title          nvarchar(50),
+  fld_description    nvarchar(50),
+  PRIMARY KEY (fld_CharID, fld_MedalID)
+);
+
+CREATE TABLE CharSkillInTraining (
+  fld_CharID           integer,
+  fld_StartTime        datetime,
+  fld_EndTime          datetime,
+  fld_TypeID           integer,
+  fld_StartSP          integer,
+  fld_EndSP            integer,
+  fld_ToLevel          integer,
+  fld_SkillInTraining  integer
+);
+
+CREATE TABLE CharSkillQueue (
+  fld_CharID         integer,
+  fld_queuePosition  integer,
+  fld_typeID         integer,
+  fld_startSP        integer,
+  fld_endSP          integer,
+  fld_startTime      datetime,
+  fld_endTime        datetime,
+  fld_level          integer
+);
+
+CREATE TABLE CharStandings (
+  fld_CharID        integer,
+  fld_standingType  integer,
+  fld_ID            integer,
+  fld_Name          nvarchar(50),
+  fld_standing      real
+);
+
+CREATE TABLE CharTrans (
+  fld_CharID           integer NOT NULL,
+  fld_transID          integer NOT NULL,
+  fld_date             datetime NOT NULL,
+  fld_clientID         integer NOT NULL,
+  fld_stationID        integer NOT NULL,
+  fld_typeID           integer NOT NULL,
+  fld_quantity         integer,
+  fld_price            real,
+  fld_typeName         nvarchar(50),
+  fld_clientName       nvarchar(50),
+  fld_stationName      nvarchar(50),
+  fld_transactionType  nvarchar(50),
+  fld_transactionFor   nvarchar(50),
+  PRIMARY KEY (fld_CharID, fld_transID, fld_date, fld_clientID, fld_stationID, fld_typeID)
+);
+
+CREATE TABLE CharacterSheet (
+  fld_CharID             integer PRIMARY KEY NOT NULL,
+  fld_CorporationID      integer,
+  fld_cloneSkillPoints   integer,
+  fld_attr_intelligence  integer,
+  fld_attr_memory        integer,
+  fld_attr_charisma      integer,
+  fld_attr_perception    integer,
+  fld_attr_willpower     integer,
+  fld_Implant_Int_Value  integer,
+  fld_Implant_Mem_Value  integer,
+  fld_Implant_Cha_Value  integer,
+  fld_Implant_Per_Value  integer,
+  fld_Implant_Wil_Value  integer,
+  fld_balance            real,
+  fld_Name               nvarchar(50),
+  fld_race               nvarchar(50),
+  fld_bloodLine          nvarchar(50),
+  fld_gender             nvarchar(50),
+  fld_CorporationName    nvarchar(50),
+  fld_cloneName          nvarchar(50),
+  fld_Implant_Int_Name   nvarchar(50),
+  fld_Implant_Mem_Name   nvarchar(50),
+  fld_Implant_Cha_Name   nvarchar(50),
+  fld_Implant_Per_Name   nvarchar(50),
+  fld_Implant_Wil_Name   nvarchar(50)
+);
+
+CREATE TABLE CharacterSheetCertificates (
+  fld_CharID         integer,
+  fld_CertificateID  integer
+);
+
+CREATE TABLE CharacterSheetRoles (
+  fld_CharID    integer,
+  fld_RoleType  integer,
+  fld_RoleID    integer,
+  fld_RoleName  nvarchar(50)
+);
+
+CREATE TABLE CharacterSheetSkills (
+  fld_CharID       integer,
+  fld_typeID       integer,
+  fld_skillpoints  integer,
+  fld_level        integer,
+  fld_unpublished  integer
+);
+
+CREATE TABLE Characters (
+  fld_UserID      integer NOT NULL,
+  fld_CharID      integer NOT NULL,
+  fld_CorpID      integer,
+  fld_CharName    nvarchar(50),
+  fld_CorpName    nvarchar(50),
+  fld_LimitedKey  nvarchar(50),
+  fld_FullKey     nvarchar(50),
+  fld_RegCode     nvarchar(50),
+  PRIMARY KEY (fld_UserID, fld_CharID)
+);
+
+CREATE TABLE CorpAccountBalances (
+  fld_CorpID      integer NOT NULL,
+  fld_AccountKey  integer NOT NULL,
+  fld_AccountID   integer,
+  fld_balance     real,
+  PRIMARY KEY (fld_CorpID, fld_AccountKey)
+);
+
+CREATE TABLE CorpAssets (
+  fld_CorpID        integer,
+  fld_ItemID        integer,
+  fld_ItemParentID  integer NOT NULL DEFAULT 0,
+  fld_locationID    integer,
+  fld_typeID        integer,
+  fld_quantity      integer,
+  fld_flag          integer,
+  fld_singleton     integer
+);
+
+CREATE TABLE CorpContainerLogs (
+  fld_CorpID            integer NOT NULL,
+  fld_ItemID            integer NOT NULL,
+  fld_logTime           datetime NOT NULL,
+  fld_itemTypeID        integer,
+  fld_actorID           integer,
+  fld_flag              integer,
+  fld_locationID        integer,
+  fld_typeID            integer,
+  fld_quantity          integer,
+  fld_actorName         nvarchar(50),
+  fld_action            nvarchar(50),
+  fld_passwordType      nvarchar(50),
+  fld_oldConfiguration  nvarchar(50),
+  fld_newConfiguration  nvarchar(50),
+  PRIMARY KEY (fld_CorpID, fld_ItemID, fld_logTime)
+);
+
+CREATE TABLE CorpCorporationSheets (
+  fld_CorpID         integer PRIMARY KEY NOT NULL,
+  fld_ceoID          integer,
+  fld_stationID      integer,
+  fld_allianceID     integer,
+  fld_memberCount    integer,
+  fld_memberLimit    integer,
+  fld_shares         integer,
+  fld_logoGraphicID  integer,
+  fld_logoShape1     integer,
+  fld_logoShape2     integer,
+  fld_logoShape3     integer,
+  fld_logoColor1     integer,
+  fld_logoColor2     integer,
+  fld_logoColor3     integer
+  fld_taxRate        real,
+  fld_CorpName       nvarchar(50),
+  fld_ticker         nvarchar(50),
+  fld_ceoName        nvarchar(50),
+  fld_stationName    nvarchar(50),
+  fld_description    nvarchar(50),
+  fld_url            nvarchar(50),
+  fld_allianceName   nvarchar(50),
+);
+
+CREATE TABLE CorpHangarDivisions (
+  fld_CorpID       integer NOT NULL,
+  fld_AccountKey   integer NOT NULL,
+  fld_Description  nvarchar(50),
+  PRIMARY KEY (fld_CorpID, fld_AccountKey)
+);
+
+CREATE TABLE CorpIndustryJobs (
+  fld_CharID                                        integer NOT NULL,
+  fld_jobID                                         integer NOT NULL,
+  fld_installerID                                   integer NOT NULL,
+  fld_installTime                                   datetime NOT NULL,
+  fld_assemblyLineID                                integer,
+  fld_containerID                                   integer,
+  fld_installedItemID                               integer,
+  fld_installedItemLocationID                       integer,
+  fld_installedItemQuantity                         integer,
+  fld_installedItemProductivityLevel                integer,
+  fld_installedItemMaterialLevel                    integer,
+  fld_installedItemLicensedProductionRunsRemaining  integer,
+  fld_outputLocationID                              integer,
+  fld_runs                                          integer,
+  fld_licensedProductionRuns                        integer,
+  fld_installedInSolarSystemID                      integer,
+  fld_containerLocationID                           integer,
+  fld_installedItemTypeID                           integer,
+  fld_outputTypeID                                  integer,
+  fld_containerTypeID                               integer,
+  fld_installedItemCopy                             integer,
+  fld_completed                                     integer,
+  fld_completedSuccessfully                         integer,
+  fld_installedItemFlag                             integer,
+  fld_outputFlag                                    integer,
+  fld_activityID                                    integer,
+  fld_completedStatus                               integer,
+  fld_materialMultiplier                            real,
+  fld_charMaterialMultiplier                        real,
+  fld_timeMultiplier                                real,
+  fld_charTimeMultiplier                            real,
+  fld_beginProductionTime                           datetime,
+  fld_endProductionTime                             datetime,
+  fld_pauseProductionTime                           datetime,
+  PRIMARY KEY (fld_CharID, fld_jobID, fld_installerID, fld_installTime)
+);
+
+CREATE TABLE CorpJournal (
+  fld_CorpID      integer NOT NULL,
+  fld_date        datetime NOT NULL,
+  fld_refID       integer NOT NULL,
+  fld_ownerID1    integer NOT NULL,
+  fld_ownerID2    integer NOT NULL,
+  fld_argID1      integer NOT NULL,
+  fld_refTypeID   integer,
+  fld_ammount     real,
+  fld_balance     real,
+  fld_ownerName1  nvarchar(50),
+  fld_ownerName2  nvarchar(50),
+  fld_argName1    nvarchar(50),
+  fld_reason      nvarchar(50),
+  PRIMARY KEY (fld_CorpID, fld_date, fld_refID, fld_ownerID1, fld_ownerID2, fld_argID1)
+);
+
+CREATE TABLE CorpMarketOrders (
+  fld_CorpID        integer NOT NULL,
+  fld_charID        integer NOT NULL,
+  fld_issued        datetime NOT NULL,
+  fld_orderID       integer NOT NULL,
+  fld_ownerID       integer,
+  fld_stationID     integer NOT NULL,
+  fld_volEntered    integer,
+  fld_volRemaining  integer,
+  fld_minVolume     integer,
+  fld_orderState    numeric(1),
+  fld_typeID        integer NOT NULL,
+  fld_range         integer,
+  fld_accountKey    integer NOT NULL,
+  fld_duration      integer,
+  fld_escrow        real,
+  fld_price         real,
+  fld_bid           numeric(1),
+  PRIMARY KEY (fld_CorpID, fld_charID, fld_orderID, fld_stationID, fld_typeID, fld_accountKey, fld_issued)
+);
+
+CREATE TABLE CorpMedals (
+  fld_CorpID       integer NOT NULL,
+  fld_MedalID      integer NOT NULL,
+  fld_title        nvarchar(50),
+  fld_description  nvarchar(50),
+  fld_creatorID    integer,
+  fld_created      datetime,
+  PRIMARY KEY (fld_CorpID, fld_MedalID)
+);
+
+CREATE TABLE CorpMemberMedals (
+  fld_CorpID    integer NOT NULL,
+  fld_MedalID   integer NOT NULL,
+  fld_CharID    integer NOT NULL,
+  fld_reason    nvarchar(50),
+  fld_status    nvarchar(50),
+  fld_issuerID  integer,
+  fld_issued    datetime,
+  PRIMARY KEY (fld_CorpID, fld_MedalID, fld_CharID)
+);
+
+CREATE TABLE CorpStandings (
+  fld_CorpID        integer,
+  fld_standingType  integer,
+  fld_ID            integer,
+  fld_Name          nvarchar(50),
+  fld_standing      real
+);
+
+CREATE TABLE CorpTransactions (
+  fld_CorpID           integer NOT NULL,
+  fld_AccountKey       integer NOT NULL,
+  fld_date             datetime NOT NULL,
+  fld_transID          integer NOT NULL,
+  quantity             integer,
+  fld_typeName         nvarchar(50),
+  fld_typeID           integer,
+  fld_price            real,
+  fld_clientID         integer,
+  fld_ClientName       nvarchar(50),
+  fld_CharID           integer NOT NULL,
+  fld_CharName         nvarchar(50),
+  fld_stationID        integer NOT NULL,
+  fld_stationName      nvarchar(50),
+  fld_transactionType  nvarchar(50),
+  fld_transactionFor   nvarchar(50),
+  PRIMARY KEY (fld_CorpID, fld_AccountKey, fld_date, fld_transID, fld_CharID, fld_stationID)
+);
+
+CREATE TABLE CorpWalletDivisions (
+  fld_CorpID       integer NOT NULL,
+  fld_AccountKey   integer NOT NULL,
+  fld_description  nvarchar(50),
+  PRIMARY KEY (fld_CorpID, fld_AccountKey)
+);
+
+CREATE TABLE KillLog (
+  fld_KillID               integer PRIMARY KEY NOT NULL,
+  fld_SolarSystemID        integer,
+  fld_KillTime             datetime,
+  fld_moonID               integer,
+  fld_vic_allianceID       integer,
+  fld_vic_allianceName     nvarchar(50),
+  fld_vic_characterID      integer,
+  fld_vic_characterName    nvarchar(50),
+  fld_vic_corporationID    integer,
+  fld_vic_corporationName  nvarchar(50),
+  fld_vic_damageTaken      integer,
+  fld_vic_factionID        integer,
+  fld_vic_factionName      nvarchar(50),
+  fld_vic_ShipTypeID       integer
+);
+
+CREATE TRIGGER KillLog_au_fkr_KillLogAttackers
+  AFTER UPDATE OF fld_KillID
+  ON KillLog
+BEGIN
+  UPDATE KillLogAttackers
+  SET fld_KillID = NEW.fld_KillID
+  WHERE fld_KillID = OLD.fld_KillID;
+END;
+
+CREATE TRIGGER KillLog_au_fkr_KillLogItems
+  AFTER UPDATE OF fld_KillID
+  ON KillLog
+BEGIN
+  UPDATE KillLogItems
+  SET fld_KillID = NEW.fld_KillID
+  WHERE fld_KillID = OLD.fld_KillID;
+END;
+
+CREATE TRIGGER KillLog_bd_fkr_KillLogAttackers
+  BEFORE DELETE
+  ON KillLog
+BEGIN
+  DELETE FROM KillLogAttackers
+  WHERE fld_KillID = OLD.fld_KillID;
+END;
+
+CREATE TRIGGER KillLog_bd_fkr_KillLogItems
+  BEFORE DELETE
+  ON KillLog
+BEGIN
+  DELETE FROM KillLogItems
+  WHERE fld_KillID = OLD.fld_KillID;
+END;
+
+CREATE TABLE KillLogAttackers (
+  fld_KillID           integer,
+  fld_allianceID       integer,
+  fld_allianceName     nvarchar(50),
+  fld_characterID      integer,
+  fld_characterName    nvarchar(50),
+  fld_corporationID    integer,
+  fld_corporationName  nvarchar(50),
+  fld_damageDone       integer,
+  fld_factionID        integer,
+  fld_factionName      nvarchar(50),
+  fld_finalBlow        numeric(1),
+  fld_securityStatus   real,
+  fld_shipTypeID       integer,
+  fld_weaponTypeID     integer,
+  /* Foreign keys */
+  FOREIGN KEY (fld_KillID)
+    REFERENCES KillLog(fld_KillID)
+);
+
+CREATE TRIGGER KillLogAttackers_bi_fk_KillLog
+  BEFORE INSERT
+  ON KillLogAttackers
+BEGIN
+  SELECT CASE
+    WHEN (SELECT 1 FROM KillLog WHERE KillLog.fld_KillID = NEW.fld_KillID) IS NULL
+    THEN RAISE(ABORT, 'INSERT statement conflicted with COLUMN REFERENCE constraint [KillLogAttackers -> KillLog].')
+  END;
+END;
+
+CREATE TRIGGER KillLogAttackers_bu_fk_KillLog
+  BEFORE UPDATE OF fld_KillID
+  ON KillLogAttackers
+BEGIN
+  SELECT CASE
+    WHEN (SELECT 1 FROM KillLog WHERE KillLog.fld_KillID = NEW.fld_KillID) IS NULL
+    THEN RAISE(ABORT, 'UPDATE statement conflicted with COLUMN REFERENCE constraint [KillLogAttackers -> KillLog].')
+  END;
+END;
+
+CREATE TABLE KillLogItems (
+  fld_KillID        integer,
+  fld_flag          numeric(1),
+  fld_qtyDropped    integer,
+  fld_qtyDestroyed  integer,
+  fld_typeID        integer,
+  /* Foreign keys */
+  FOREIGN KEY (fld_KillID)
+    REFERENCES KillLog(fld_KillID)
+);
+
+CREATE TRIGGER KillLogItems_bi_fk_KillLog
+  BEFORE INSERT
+  ON KillLogItems
+BEGIN
+  SELECT CASE
+    WHEN (SELECT 1 FROM KillLog WHERE KillLog.fld_KillID = NEW.fld_KillID) IS NULL
+    THEN RAISE(ABORT, 'INSERT statement conflicted with COLUMN REFERENCE constraint [KillLogItems -> KillLog].')
+  END;
+END;
+
+CREATE TRIGGER KillLogItems_bu_fk_KillLog
+  BEFORE UPDATE OF fld_KillID
+  ON KillLogItems
+BEGIN
+  SELECT CASE
+    WHEN (SELECT 1 FROM KillLog WHERE KillLog.fld_KillID = NEW.fld_KillID) IS NULL
+    THEN RAISE(ABORT, 'UPDATE statement conflicted with COLUMN REFERENCE constraint [KillLogItems -> KillLog].')
+  END;
+END;
+
+CREATE TABLE RefTypes (
+  fld_refID  integer PRIMARY KEY NOT NULL,
+  fld_Name   nvarchar(50)
+);
+
+CREATE TABLE RequestCache (
+  fld_Id          integer PRIMARY KEY NOT NULL,
+  fld_UserID      nvarchar(50),
+  fld_url         nvarchar(50),
+  fld_ValidUntil  datetime,
+  fld_Response    text
+);
+
+CREATE TABLE Version (
+  TableName      nvarchar(50) PRIMARY KEY NOT NULL,
+  VersionNumber  integer NOT NULL DEFAULT 0
+);
+

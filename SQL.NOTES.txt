@@ -1,0 +1,109 @@
+Here's a handy query for finding duplicates in a table. Suppose you want to find all email addresses in a table that exist more than once:
+
+SELECT email, 
+ COUNT(email) AS NumOccurrences
+FROM users
+GROUP BY email
+HAVING ( COUNT(email) > 1 )
+
+You could also use this technique to find rows that occur exactly once:
+
+SELECT email
+FROM users
+GROUP BY email
+HAVING ( COUNT(email) = 1 )
+
+
+
+SELECT transID, 
+ COUNT(transID) AS NumOccurrences
+FROM CharTrans3
+GROUP BY transID
+HAVING ( COUNT(TransID) > 1 );
+
+
+SELECT transID, 
+ COUNT(transID) AS NumOccurrences
+FROM CharTrans4
+GROUP BY transID
+HAVING ( COUNT(TransID) > 1 );
+
+
+--- MSG ---
+
+I have a large application for PPC (currently Windows Mobile 2003).  Since SQLite is not a heavely typed database, a lot of additional bytes are being concumed by the following:
+
+There is no date/time field - so dates are stored as string.
+There is no Boolean or byte data type - so they take up more than 1 byte when stored as a numeric.
+There is no Integer (shortint) data type - so they take up more than 2 bytes when stored as a numeric.
+Etc. Etc.
+
+I am already planning to store dates as doubles.  If anyone has any code for converting date/times (or just dates) to/from the DATETIME C# type to a suitable numeric (I only need to go back to about 1970) would you post it here?
+
+Does anyone have any suggestions for storing numerics in a smaller number of bytes, and sample code for conversion.  In some cases I will need to still sort/select on the value, while others I just need to be able to read/write.
+
+I just need to get the databases to be as small as possible.
+
+Thanks.
+
+   1. Set DateTimeFormat=Ticks in your connection string to use an integer for dates and times.  This will save some space.  If you use GUID datatypes, set BinaryGuid=True.
+   2. SQLite automatically compresses numbers.  Numbers 0-255 consume 1 byte of space.  256-65535 consume 2 bytes.  65536-16777215 consume 3 bytes, etc.
+
+Robert
+
+-----------
+
+--- MSG ---
+
+Hi All,
+
+I have a field in a Sqlite db which is a DateTime. So if I do a "DataReader.GetDateTime(0)", it works fine.
+
+But if I execute the query "SELECT Max(myDateTimeColum) FROM mytable", it returns a string.
+
+Shouldn't it return a DateTime as well?
+
+Regards,
+Chris
+
+
+Here's the problem ...
+
+SQLite understands the native types STRING, INT64, DOUBLE and BLOB.  Dates are stored in the database as STRING.  The ADO.NET provider, when fetching data from the table, can check the table definition and make a decision about how to internally cast the items to a more descriptive datatype.
+
+However, when you use a userdef function or collating sequence like MAX, the results of these functions no longer back to an actual table and there's no nice way for the ADO.NET provider to know automatically that one of the base SQLite types needs to be converted to a more descriptive type like DateTime.
+
+In otherwords ... given the schema:
+
+CREATE TABLE FOO(ID INTEGER PRIMARY KEY, MyDateTime DATETIME);
+
+This query:
+SELECT * FROM FOO
+
+returns types Int64 and DateTime.  Internally, MyDateTime is stored as a string, and SQLite.NET sees that the column requested is backed directly to a table -- so it looks up the table's definition and sees that MyDateTime is declared as "DATETIME" and therefore SQLite.NET should coerce the string into a DateTime.
+
+This query:
+SELECT COUNT(MyDateTime)
+
+This returns INT64 -- one of the native SQLite types.  SQLite.NET sees a column is being returned, but the column is not backed to a table -- it's a result of a collating function -- so SQLite.NET has no way of knowing what data or formulas were used, so no way of knowing if INT64 is right or not -- so no coersion is done.
+
+And finally:
+SELECT MAX(MyDateTime) FROM FOO
+
+Again, a collating sequence is used.  SQLite.NET has no way of knowing or detecting collating sequences, no way of knowing what they do or what kind of data they return ... and SQLite natively only understands limited types -- so SQLite.NET has no choice but to skip any coersion and just return whatever datatype SQLite tells it to return -- in this case, a STRING.
+
+However, all of this is just to help you understand why things are the way they are.  I do have a solution for you, though!
+
+In the SQLite provider, I added a pre-parser step to the SQL generator to help you tell the SQLite provider what types are being returned from a dynamic query such as yours.
+
+It's called the TYPES keyword, and you use it before executing a SELECT statement which returns computed values, to tell the SQLite provider how to coerce those values.  Here's a sample:
+
+TYPES datetime; -- the datatype(s) being returned from the query to follow
+SELECT MAX(MyDateTime) FROM FOO;
+
+Executing the above query will  return you your column as a DateTime.  By tossing the TYPES keyword above the select, telling the provider what datatypes to expect to return from the SELECT, we've given the provider enough information to coerce your values automatically even if they come from a userdef function or collating sequence.
+
+Robert
+
+-----------
+

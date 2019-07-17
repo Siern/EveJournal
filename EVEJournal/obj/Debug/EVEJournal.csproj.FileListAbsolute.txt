@@ -1,0 +1,15 @@
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\bin\Debug\EVEJournal.exe.config
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\ResolveAssemblyReference.cache
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.CharacterEditorDlg.resources
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.CommandLineDlg.resources
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.CorpEditWalletNamesDlg.resources
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.DataExportDlg.resources
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.DataExportSelectionDlg.resources
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.DataImportDlg.resources
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.Form1.resources
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.ListSelectDlg.resources
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.MemberActivitySettingsDlg.resources
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.ProcessingDlg.resources
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.Properties.Resources.resources
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.SQLDump.resources
+C:\crt\code\EVEJournal\EveJournal\trunk\EVEJournal\EVEJournal\obj\Debug\EVEJournal.csproj.GenerateResource.Cache

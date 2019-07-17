@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7BE30726-21C9-4C92-8965-1246460CAEA0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EVEJournal</RootNamespace>
+    <AssemblyName>EVEJournal</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.1.1.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ApplicationIcon>Taskbar.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0414</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.60.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppData.cs" />
+    <Compile Include="Base.cs" />
+    <Compile Include="BaseCollection.cs" />
+    <Compile Include="CharAccountBalance\CharAccountBalance.cs" />
+    <Compile Include="CharAccountBalance\CharAccountBalance.Object.cs" />
+    <Compile Include="CharAccountBalance\CharAccountBalance.ObjectInternal.cs" />
+    <Compile Include="CharAccountBalance\CharAccountBalance.ObjectWriteable.cs" />
+    <Compile Include="CharAccountBalance\CharAccountBalanceCollection.cs" />
+    <Compile Include="CharacterIndustryJob\CharacterIndustryJob.cs" />
+    <Compile Include="CharacterIndustryJob\CharacterIndustryJob.Object.cs" />
+    <Compile Include="CharacterIndustryJob\CharacterIndustryJob.ObjectInternal.cs" />
+    <Compile Include="CharacterIndustryJob\CharacterIndustryJob.ObjectWriteable.cs" />
+    <Compile Include="CharacterIndustryJob\CharacterIndustryJobCollection.cs" />
+    <Compile Include="CharacterJournal\CharacterJournal.ObjectInternal.cs" />
+    <Compile Include="CharacterJournal\Journal.Object.cs" />
+    <Compile Include="CharacterJournal\Journal.ObjectWriteable.cs" />
+    <Compile Include="CharacterOrder\CharacterOrder.cs" />
+    <Compile Include="CharacterOrder\CharacterOrder.ObjectInternal.cs" />
+    <Compile Include="CharacterOrder\CharacterOrder.ObjectWriteable.cs" />
+    <Compile Include="CharacterOrder\CharacterOrderCollection.cs" />
+    <Compile Include="CharacterOrder\CharacterOrder.Object.cs" />
+    <Compile Include="CharacterSheetCertificates\CharacterSheetCertificates.cs" />
+    <Compile Include="CharacterSheetCertificates\CharacterSheetCertificates.Object.cs" />
+    <Compile Include="CharacterSheetCertificates\CharacterSheetCertificates.ObjectInternal.cs" />
+    <Compile Include="CharacterSheetCertificates\CharacterSheetCertificates.ObjectWriteable.cs" />
+    <Compile Include="CharacterSheetCertificates\CharacterSheetCertificatesCollection.cs" />
+    <Compile Include="CharacterSheetRoles\CharacterSheetRoles.cs" />
+    <Compile Include="CharacterSheetRoles\CharacterSheetRoles.Object.cs" />
+    <Compile Include="CharacterSheetRoles\CharacterSheetRoles.ObjectInternal.cs" />
+    <Compile Include="CharacterSheetRoles\CharacterSheetRoles.ObjectWriteable.cs" />
+    <Compile Include="CharacterSheetRoles\CharacterSheetRolesCollection.cs" />
+    <Compile Include="CharacterSheetSkills\CharacterSheetSkills.cs" />
+    <Compile Include="CharacterSheetSkills\CharacterSheetSkills.Object.cs" />
+    <Compile Include="CharacterSheetSkills\CharacterSheetSkills.ObjectInternal.cs" />
+    <Compile Include="CharacterSheetSkills\CharacterSheetSkills.ObjectWriteable.cs" />
+    <Compile Include="CharacterSheetSkills\CharacterSheetSkillsCollection.cs" />
+    <Compile Include="CharacterSheet\CharacterSheet.cs" />
+    <Compile Include="CharacterSheet\CharacterSheet.Object.cs" />
+    <Compile Include="CharacterSheet\CharacterSheet.ObjectInternal.cs" />
+    <Compile Include="CharacterSheet\CharacterSheet.ObjectWriteable.cs" />
+    <Compile Include="CharacterSheet\CharacterSheetCollection.cs" />
+    <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\Character.Object.cs" />
+    <Compile Include="Characters\Character.ObjectInternal.cs" />
+    <Compile Include="Characters\Character.ObjectWriteable.cs" />
+    <Compile Include="Characters\CharacterCollection.cs" />
+    <Compile Include="CharacterEditorDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharacterEditorDlg.Designer.cs">
+      <DependentUpon>CharacterEditorDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CharacterJournal\CharacterJournal.cs" />
+    <Compile Include="CharacterJournal\CharacterJournalCollection.cs" />
+    <Compile Include="CharacterTransaction\CharacterTransaction.cs" />
+    <Compile Include="CharacterTransaction\CharacterTransaction.ObjectInternal.cs" />
+    <Compile Include="CharacterTransaction\CharacterTransactionCollection.cs" />
+    <Compile Include="CharacterTransaction\Transaction.Object.cs" />
+    <Compile Include="CharacterTransaction\Transaction.ObjectWriteable.cs" />
+    <Compile Include="CharAssets\CharAssets.cs" />
+    <Compile Include="CharAssets\CharAssets.Object.cs" />
+    <Compile Include="CharAssets\CharAssets.ObjectInternal.cs" />
+    <Compile Include="CharAssets\CharAssets.ObjectWriteable.cs" />
+    <Compile Include="CharAssets\CharAssetsCollection.cs" />
+    <Compile Include="CharFacWarStats\CharFacWarStats.cs" />
+    <Compile Include="CharFacWarStats\CharFacWarStats.Object.cs" />
+    <Compile Include="CharFacWarStats\CharFacWarStats.ObjectInternal.cs" />
+    <Compile Include="CharFacWarStats\CharFacWarStats.ObjectWriteable.cs" />
+    <Compile Include="CharFacWarStats\CharFacWarStatsCollection.cs" />
+    <Compile Include="CharMailingLists\CharMailingLists.cs" />
+    <Compile Include="CharMailingLists\CharMailingLists.Object.cs" />
+    <Compile Include="CharMailingLists\CharMailingLists.ObjectInternal.cs" />
+    <Compile Include="CharMailingLists\CharMailingLists.ObjectWriteable.cs" />
+    <Compile Include="CharMailingLists\CharMailingListsCollection.cs" />
+    <Compile Include="CharMailMessages\CharMailMessages.cs" />
+    <Compile Include="CharMailMessages\CharMailMessages.Object.cs" />
+    <Compile Include="CharMailMessages\CharMailMessages.ObjectInternal.cs" />
+    <Compile Include="CharMailMessages\CharMailMessages.ObjectWriteable.cs" />
+    <Compile Include="CharMailMessages\CharMailMessagesCollection.cs" />
+    <Compile Include="CharMedals\CharMedals.cs" />
+    <Compile Include="CharMedals\CharMedals.Object.cs" />
+    <Compile Include="CharMedals\CharMedals.ObjectInternal.cs" />
+    <Compile Include="CharMedals\CharMedals.ObjectWriteable.cs" />
+    <Compile Include="CharMedals\CharMedalsCollection.cs" />
+    <Compile Include="CharNotifications\CharNotifications.cs" />
+    <Compile Include="CharNotifications\CharNotifications.Object.cs" />
+    <Compile Include="CharNotifications\CharNotifications.ObjectInternal.cs" />
+    <Compile Include="CharNotifications\CharNotifications.ObjectWriteable.cs" />
+    <Compile Include="CharNotifications\CharNotificationsCollection.cs" />
+    <Compile Include="CharSkillInTraining\CharSkillInTraining.cs" />
+    <Compile Include="CharSkillInTraining\CharSkillInTraining.Object.cs" />
+    <Compile Include="CharSkillInTraining\CharSkillInTraining.ObjectInternal.cs" />
+    <Compile Include="CharSkillInTraining\CharSkillInTraining.ObjectWriteable.cs" />
+    <Compile Include="CharSkillInTraining\CharSkillInTrainingCollection.cs" />
+    <Compile Include="CharSkillQueue\CharSkillQueue.cs" />
+    <Compile Include="CharSkillQueue\CharSkillQueue.Object.cs" />
+    <Compile Include="CharSkillQueue\CharSkillQueue.ObjectInternal.cs" />
+    <Compile Include="CharSkillQueue\CharSkillQueue.ObjectWriteable.cs" />
+    <Compile Include="CharSkillQueue\CharSkillQueueCollection.cs" />
+    <Compile Include="CharStandings\CharStandings.cs" />
+    <Compile Include="CharStandings\CharStandings.Object.cs" />
+    <Compile Include="CharStandings\CharStandings.ObjectInternal.cs" />
+    <Compile Include="CharStandings\CharStandings.ObjectWriteable.cs" />
+    <Compile Include="CharStandings\CharStandingsCollection.cs" />
+    <Compile Include="CommandLineDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommandLineDlg.Designer.cs">
+      <DependentUpon>CommandLineDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compression.cs" />
+    <Compile Include="CorpAccountBalances\CorpAccountBalances.cs" />
+    <Compile Include="CorpAccountBalances\CorpAccountBalances.Object.cs" />
+    <Compile Include="CorpAccountBalances\CorpAccountBalances.ObjectInternal.cs" />
+    <Compile Include="CorpAccountBalances\CorpAccountBalances.ObjectWriteable.cs" />
+    <Compile Include="CorpAccountBalances\CorpAccountBalancesCollection.cs" />
+    <Compile Include="CorpAssets\CorpAssets.cs" />
+    <Compile Include="CorpAssets\CorpAssets.Object.cs" />
+    <Compile Include="CorpAssets\CorpAssets.ObjectInternal.cs" />
+    <Compile Include="CorpAssets\CorpAssets.ObjectWriteable.cs" />
+    <Compile Include="CorpAssets\CorpAssetsCollection.cs" />
+    <Compile Include="CorpContainerLogs\CorpContainerLogs.cs" />
+    <Compile Include="CorpContainerLogs\CorpContainerLogs.Object.cs" />
+    <Compile Include="CorpContainerLogs\CorpContainerLogs.ObjectInternal.cs" />
+    <Compile Include="CorpContainerLogs\CorpContainerLogs.ObjectWriteable.cs" />
+    <Compile Include="CorpContainerLogs\CorpContainerLogsCollection.cs" />
+    <Compile Include="CorpCorporationSheets\CorpCorporationSheets.cs" />
+    <Compile Include="CorpCorporationSheets\CorpCorporationSheets.Object.cs" />
+    <Compile Include="CorpCorporationSheets\CorpCorporationSheets.ObjectInternal.cs" />
+    <Compile Include="CorpCorporationSheets\CorpCorporationSheets.ObjectWriteable.cs" />
+    <Compile Include="CorpCorporationSheets\CorpCorporationSheetsCollection.cs" />
+    <Compile Include="CorpFacWarStats\CorpFacWarStats.cs" />
+    <Compile Include="CorpFacWarStats\CorpFacWarStats.Object.cs" />
+    <Compile Include="CorpFacWarStats\CorpFacWarStats.ObjectInternal.cs" />
+    <Compile Include="CorpFacWarStats\CorpFacWarStats.ObjectWriteable.cs" />
+    <Compile Include="CorpFacWarStats\CorpFacWarStatsCollection.cs" />
+    <Compile Include="CorpEditWalletNamesDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CorpEditWalletNamesDlg.Designer.cs">
+      <DependentUpon>CorpEditWalletNamesDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CorpHangarDivisions\CorpHangarDivisions.cs" />
+    <Compile Include="CorpHangarDivisions\CorpHangarDivisions.Object.cs" />
+    <Compile Include="CorpHangarDivisions\CorpHangarDivisions.ObjectInternal.cs" />
+    <Compile Include="CorpHangarDivisions\CorpHangarDivisions.ObjectWriteable.cs" />
+    <Compile Include="CorpHangarDivisions\CorpHangarDivisionsCollection.cs" />
+    <Compile Include="CorpIndustryJobs\CorpIndustryJobs.cs" />
+    <Compile Include="CorpIndustryJobs\CorpIndustryJobs.Object.cs" />
+    <Compile Include="CorpIndustryJobs\CorpIndustryJobs.ObjectInternal.cs" />
+    <Compile Include="CorpIndustryJobs\CorpIndustryJobs.ObjectWriteable.cs" />
+    <Compile Include="CorpIndustryJobs\CorpIndustryJobsCollection.cs" />
+    <Compile Include="CorpJournal\CorporationJournal.cs" />
+    <Compile Include="CorpJournal\CorporationJournal.Object.cs" />
+    <Compile Include="CorpJournal\CorporationJournal.ObjectInternal.cs" />
+    <Compile Include="CorpJournal\CorporationJournal.ObjectWriteable.cs" />
+    <Compile Include="CorpJournal\CorporationJournalCollection.cs" />
+    <Compile Include="CorpMarketOrders\CorpMarketOrders.cs" />
+    <Compile Include="CorpMarketOrders\CorpMarketOrders.Object.cs" />
+    <Compile Include="CorpMarketOrders\CorpMarketOrders.ObjectInternal.cs" />
+    <Compile Include="CorpMarketOrders\CorpMarketOrders.ObjectWriteable.cs" />
+    <Compile Include="CorpMarketOrders\CorpMarketOrdersCollection.cs" />
+    <Compile Include="CorpMedals\CorpMedals.cs" />
+    <Compile Include="CorpMedals\CorpMedals.Object.cs" />
+    <Compile Include="CorpMedals\CorpMedals.ObjectInternal.cs" />
+    <Compile Include="CorpMedals\CorpMedals.ObjectWriteable.cs" />
+    <Compile Include="CorpMedals\CorpMedalsCollection.cs" />
+    <Compile Include="CorpMemberMedals\CorpMemberMedals.cs" />
+    <Compile Include="CorpMemberMedals\CorpMemberMedals.Object.cs" />
+    <Compile Include="CorpMemberMedals\CorpMemberMedals.ObjectInternal.cs" />
+    <Compile Include="CorpMemberMedals\CorpMemberMedals.ObjectWriteable.cs" />
+    <Compile Include="CorpMemberMedals\CorpMemberMedalsCollection.cs" />
+    <Compile Include="CorpMemberTracking\CorpMemberTracking.Object.cs" />
+    <Compile Include="CorpMemberTracking\CorpMemberTracking.ObjectInternal.cs" />
+    <Compile Include="CorpMemberTracking\CorpMemberTracking.ObjectWriteable.cs" />
+    <Compile Include="CorpMemberTracking\CorpMemberTrackingCollection.cs" />
+    <Compile Include="CorpStandings\CorpStandings.cs" />
+    <Compile Include="CorpStandings\CorpStandings.Object.cs" />
+    <Compile Include="CorpStandings\CorpStandings.ObjectInternal.cs" />
+    <Compile Include="CorpStandings\CorpStandings.ObjectWriteable.cs" />
+    <Compile Include="CorpStandings\CorpStandingsCollection.cs" />
+    <Compile Include="CorpTransaction\CorporationTransaction.Object.cs" />
+    <Compile Include="CorpTransaction\CorporationTransaction.ObjectInternal.cs" />
+    <Compile Include="CorpTransaction\CorporationTransaction.cs" />
+    <Compile Include="CorpTransaction\CorporationTransaction.ObjectWriteable.cs" />
+    <Compile Include="CorpTransaction\CorporationTransactionCollection.cs" />
+    <Compile Include="CorpWalletDivisions\CorpWalletDivisions.cs" />
+    <Compile Include="CorpWalletDivisions\CorpWalletDivisions.Object.cs" />
+    <Compile Include="CorpWalletDivisions\CorpWalletDivisions.ObjectInternal.cs" />
+    <Compile Include="CorpWalletDivisions\CorpWalletDivisions.ObjectWriteable.cs" />
+    <Compile Include="CorpWalletDivisions\CorpWalletDivisionsCollection.cs" />
+    <Compile Include="CorpWalletNames\CorpWalletName.cs" />
+    <Compile Include="CorpWalletNames\CorpWalletName.Object.cs" />
+    <Compile Include="CorpWalletNames\CorpWalletName.ObjectInternal.cs" />
+    <Compile Include="CorpWalletNames\CorpWalletName.ObjectWritable.cs" />
+    <Compile Include="CorpWalletNames\CorpWalletNameCollection.cs" />
+    <Compile Include="Database\Database.BulkLoader.cs" />
+    <Compile Include="Database\Database.cs" />
+    <Compile Include="Database\Database.InsertRecordThread.cs" />
+    <Compile Include="Database\Database.Upgrade.cs" />
+    <Compile Include="Database\Database.VerifyVersion.cs" />
+    <Compile Include="Database\DBConstraint.cs" />
+    <Compile Include="Database\DBConvert.cs" />
+    <Compile Include="Database\DBEventArgs.cs" />
+    <Compile Include="Database\DBSortConstraint.cs" />
+    <Compile Include="DataExportDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataExportDlg.Designer.cs">
+      <DependentUpon>DataExportDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataExportSelectionDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataExportSelectionDlg.Designer.cs">
+      <DependentUpon>DataExportSelectionDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataImportDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataImportDlg.Designer.cs">
+      <DependentUpon>DataImportDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EveAPI\EveAPI.GetCharacterOrderList.cs" />
+    <Compile Include="EveAPI\EveAPI.cs" />
+    <Compile Include="EveAPI\EveAPI.EveApiId.cs" />
+    <Compile Include="EveAPI\EveAPI.GetCharacterJournalList.cs" />
+    <Compile Include="EveAPI\EveAPI.GetCharacterList.cs" />
+    <Compile Include="EveAPI\EveAPI.GetCharacterTransactionList.cs" />
+    <Compile Include="EveAPI\EveAPI.GetCorporationJournalList.cs" />
+    <Compile Include="EveAPI\EveAPI.GetCorporationMemberTrackingList.cs" />
+    <Compile Include="EveAPI\EveAPI.GetCorporationTransactionList.cs" />
+    <Compile Include="EveAPI\EveAPI.GetRefTypesList.cs" />
+    <Compile Include="Form1\Form1.CorpJournal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.CorpMissioner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.CorpTrans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.CorpWalletNames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1\Form1.Journal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.MemberActivity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.Orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1\Form1.Transaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IDBCollection.cs" />
+    <Compile Include="IDBRecord.cs" />
+    <Compile Include="IDBRecordRead.cs" />
+    <Compile Include="KillLogAttackers\KillLogAttackers.cs" />
+    <Compile Include="KillLogAttackers\KillLogAttackers.Object.cs" />
+    <Compile Include="KillLogAttackers\KillLogAttackers.ObjectInternal.cs" />
+    <Compile Include="KillLogAttackers\KillLogAttackers.ObjectWriteable.cs" />
+    <Compile Include="KillLogAttackers\KillLogAttackersCollection.cs" />
+    <Compile Include="KillLogItems\KillLogItems.cs" />
+    <Compile Include="KillLogItems\KillLogItems.Object.cs" />
+    <Compile Include="KillLogItems\KillLogItems.ObjectInternal.cs" />
+    <Compile Include="KillLogItems\KillLogItems.ObjectWriteable.cs" />
+    <Compile Include="KillLogItems\KillLogItemsCollection.cs" />
+    <Compile Include="KillLog\KillLog.cs" />
+    <Compile Include="KillLog\KillLog.Object.cs" />
+    <Compile Include="KillLog\KillLog.ObjectInternal.cs" />
+    <Compile Include="KillLog\KillLog.ObjectWriteable.cs" />
+    <Compile Include="KillLog\KillLogCollection.cs" />
+    <Compile Include="ListSelectDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListSelectDlg.Designer.cs">
+      <DependentUpon>ListSelectDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logger.cs" />
+    <Compile Include="MasterTable.cs" />
+    <Compile Include="MasterTableCollection.cs" />
+    <Compile Include="MemberActivitySettingsDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberActivitySettingsDlg.Designer.cs">
+      <DependentUpon>MemberActivitySettingsDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CorpMemberTracking\CorpMemberTracking.cs" />
+    <Compile Include="MemberTrackingSettings\MemberTrackingSettings.cs" />
+    <Compile Include="MemberTrackingSettings\MemberTrackingSettings.Object.cs" />
+    <Compile Include="MemberTrackingSettings\MemberTrackingSettings.ObjectInternal.cs" />
+    <Compile Include="MemberTrackingSettings\MemberTrackingSettingsCollection.cs" />
+    <Compile Include="ProcessingDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessingDlg.Designer.cs">
+      <DependentUpon>ProcessingDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CharacterEditorDlg.resx">
+      <DependentUpon>CharacterEditorDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommandLineDlg.resx">
+      <DependentUpon>CommandLineDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CorpEditWalletNamesDlg.resx">
+      <DependentUpon>CorpEditWalletNamesDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataExportDlg.resx">
+      <DependentUpon>DataExportDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataExportSelectionDlg.resx">
+      <DependentUpon>DataExportSelectionDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataImportDlg.resx">
+      <DependentUpon>DataImportDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListSelectDlg.resx">
+      <DependentUpon>ListSelectDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberActivitySettingsDlg.resx">
+      <DependentUpon>MemberActivitySettingsDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessingDlg.resx">
+      <DependentUpon>ProcessingDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQLDump.resx">
+      <DependentUpon>SQLDump.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ReferenceType\ReferenceType.cs" />
+    <Compile Include="ReferenceType\ReferenceType.Object.cs" />
+    <Compile Include="ReferenceType\ReferenceTypeCollection.cs" />
+    <Compile Include="RequestCache\RequestCache.cs" />
+    <Compile Include="RequestCache\RequestCache.Object.cs" />
+    <Compile Include="RequestCache\RequestCacheCollection.cs" />
+    <Compile Include="SQLDump.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQLDump.Designer.cs">
+      <DependentUpon>SQLDump.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Version\Version.cs" />
+    <Compile Include="Version\Version.Object.cs" />
+    <Compile Include="Version\VersionCollection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="icons\MemberOk.png" />
+    <None Include="icons\MemberCaution.png" />
+    <None Include="icons\MemberWarning.png" />
+    <None Include="icons\MemberAlert.png" />
+    <None Include="icons\RecruitOk.png" />
+    <None Include="icons\RecruitCaution.png" />
+    <None Include="icons\RecruitWarning.png" />
+    <None Include="icons\RecruitAlert.png" />
+    <Content Include="Taskbar.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
